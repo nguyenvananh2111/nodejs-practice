@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  mongodb-server:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  api-server:
+    build: .
+    ports:
+      - "49160:8080"
+    depends_on:
+      - mongodb-server
+
